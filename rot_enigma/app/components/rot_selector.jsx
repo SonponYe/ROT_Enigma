@@ -1,6 +1,6 @@
 function RotSelector({ value, onChange }) {
   return (
-    <div className="rot-selector my-2 flex items-center gap-2">
+    <div className="rot-selector my-2 flex items-center justify-center gap-2">
       <label htmlFor="rotValue">Select ROT value:</label>
       <select
         id="rotValue"

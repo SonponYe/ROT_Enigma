@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import Button from "../components/button";
 import InputField from "../components/input";
 import OutputField from "../components/output";
@@ -37,15 +38,25 @@ function Enigma() {
   const [output, setOutput] = useState("");
 
   return (
-    <div className="enigma-page mx-auto flex min-h-screen w-full max-w-xl flex-col px-4 py-8">
-      <h1 className="text-2xl font-bold">ROT_Enigma</h1>
-      <p className="mb-4 opacity-70">Personal Enigma algorithm</p>
-      <InputField value={text} onChange={setText} label="Enter text" />
-      <div className="flex gap-2">
-        <Button label="Encrypt" onClick={() => setOutput(enigmaEncode(text))} />
-        <Button label="Decrypt" onClick={() => setOutput(enigmaDecode(text))} />
-      </div>
-      <OutputField value={output} />
+    <div className="enigma-page flex min-h-screen flex-col px-4 py-8">
+      <main className="mx-auto flex w-full max-w-md flex-1 flex-col justify-center">
+        <div className="mb-6 text-center">
+          <h1 className="text-2xl font-bold">ROT_Enigma</h1>
+          <p className="opacity-70">Personal Enigma algorithm</p>
+        </div>
+        <InputField value={text} onChange={setText} label="Enter text" />
+        <div className="flex justify-center gap-2">
+          <Button label="Encrypt" onClick={() => setOutput(enigmaEncode(text))} />
+          <Button label="Decrypt" onClick={() => setOutput(enigmaDecode(text))} />
+        </div>
+        <OutputField value={output} />
+        <Link
+          href="/"
+          className="mt-6 text-center text-sm opacity-70 hover:opacity-100"
+        >
+          &larr; Back to home
+        </Link>
+      </main>
       <Footer />
     </div>
   );
